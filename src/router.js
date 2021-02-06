@@ -32,8 +32,8 @@ class Router {
   }
 
   render({ template }) {
-    const content = document.getElementById('content');
-    content.innerHTML = template;
+    const $content = document.getElementById('content');
+    $content.innerHTML = template;
   }
 }
 

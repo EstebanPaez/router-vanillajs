@@ -1,17 +1,17 @@
 import Router from './router.js';
 import routes from './routes/routes.js';
 
-const ROUTER = new Router(routes);
+const router = new Router(routes);
 
 window.addEventListener('hashchange', () => {
-  ROUTER.loadPage();
+  router.loadPage();
 });
 
 window.addEventListener('load', () => {
-  history.pushState({}, 'title', '/');
-  location.hash = '/home';
+  router.changePath(`/${router.getPageName()}`);
+  router.loadPage();
 });
 
-document.getElementById('home').addEventListener('click', () => ROUTER.changePath('/home'));
-document.getElementById('about').addEventListener('click', () => ROUTER.changePath('/about'));
-document.getElementById('contact').addEventListener('click', () => ROUTER.changePath('/contact'));
+document.getElementById('home').addEventListener('click', () => router.changePath('/home'));
+document.getElementById('about').addEventListener('click', () => router.changePath('/about'));
+document.getElementById('contact').addEventListener('click', () => router.changePath('/contact'));
